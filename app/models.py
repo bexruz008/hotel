@@ -41,7 +41,6 @@ class Instagram(models.Model):
     image = models.ImageField(upload_to="instagram/")
 
 
-
 class Feedback(models.Model):
     name = models.CharField(null=True, max_length=100)
     email = models.CharField(default='none', null=False, max_length=100)
@@ -63,7 +62,7 @@ class Blog(BaseModel):
 
 class Comment(models.Model):
     user = models.ForeignKey(to='app.User', on_delete=models.CASCADE, related_name='comments',
-                             related_query_name='comment')
+                             related_query_name='comments')
     blog = models.ForeignKey(to='app.Blog', on_delete=models.CASCADE, related_name='comments',
                              related_query_name='comments')
     text = models.TextField()
